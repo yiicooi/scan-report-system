@@ -1,12 +1,29 @@
 # 扫码报工系统
 
-基于 **QR 码** 的制造业报工系统，包含三个子系统：
+- 机械加工行业二维码扫码报工系统，是一个传统的项目,包含前后端及APP端
+- 完整的功能是Rails+Vue2项目,重构为Golang+Vue3(一些查询及界面美化未再实现),后续可自己实现或者美化APP
+- APP集成AI对话查看进度(DeepSeek 模型)
+- 相关需求人员可拿去自用,有问题可加微信: sanmanlechuntian 交流
 
 | 子系统 | 技术栈 | 目录 | 用途 |
 |---|---|---|---|
-| 后端 API | Go · Gin · GORM · PostgreSQL | `backend/` | 统一数据接口 |
-| 管理后台 | Vue 3 · TypeScript · Element Plus | `admin/` | 文员建单、权限管理、进度查看 |
-| 工人 App | Flutter · Riverpod · Dio | `app/` | 扫码报工、查看进度 |
+| 后端 API | Go · Gin · GORM · PostgreSQL · JWT | `backend/` | 统一数据接口 |
+| 管理后台 | Vue 3 · TypeScript · Element Plus | `admin/` | 文员建单、权限管理(RBAC)、进度查看 |
+| 报工 App | Flutter · Riverpod · Dio | `app/` | 扫码报工、查看进度 |
+
+--- 
+
+## 相关图片 
+<img width="768" height="1396" alt="75ec9e04c46f7b0bb24fe9f00fddd75d" src="https://github.com/user-attachments/assets/6ea49e23-fde3-4cbf-841d-0507df150a39" />
+
+<img width="3778" height="1213" alt="图片" src="https://github.com/user-attachments/assets/e3291f5f-d7be-4e15-b6de-4a5d8c206d5a" />
+<img width="3616" height="1503" alt="图片" src="https://github.com/user-attachments/assets/26ac9129-6839-4ecc-9d5c-abfb1698d2f4" />
+
+## app
+<img width="768" height="1396" alt="78456ad5380d1fe1c83acf73995acfdd" src="https://github.com/user-attachments/assets/da7da28b-f4fc-4103-bf05-e879c3564756" />
+<img width="768" height="1396" alt="05ef240b72a15c1130a700af4f1491b0" src="https://github.com/user-attachments/assets/c548deaa-12d4-4a91-9a52-23614c799042" />
+<img width="768" height="1396" alt="d969eeb16de26a74255cbece43b4d7c5" src="https://github.com/user-attachments/assets/58164a66-ba3c-407d-9247-867b238aca7f" />
+
 
 ---
 
