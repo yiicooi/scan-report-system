@@ -1,0 +1,14 @@
+node_modules/
+dist/
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+coverage/
+.env
+*.log
+.DS_Store
+.idea/
+.vscode/

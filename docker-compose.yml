@@ -1,0 +1,44 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: scan_report
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d scan_report"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  backend:
+    build:
+      context: ./backend
+    environment:
+      SERVER_MODE: release
+      SERVER_PORT: "8080"
+      DATABASE_DSN: "host=db user=postgres password=postgres dbname=scan_report port=5432 sslmode=disable TimeZone=Asia/Shanghai"
+      JWT_SECRET: "change-me-before-production"
+      DEEPSEEK_API_KEY: "xxxxxxxxxxxx"
+      DEEPSEEK_BASE_URL: "https://api.deepseek.com"
+      DEEPSEEK_MODEL: "deepseek-v4-flash"
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  admin:
+    build:
+      context: ./admin
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
